@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+textarea, input, button {
+  outline: none;
+}
+
+$font: 'Ubuntu', sans-serif;
+$grey: #808080;
+$border: 2px solid $grey;
+
+@mixin innerFormatting {
+  width: 100%;
+  margin: 20px 0;
+  border: $border;
+  font-size: 1rem;
+  padding: 5px;
+  font-family: $font;
+}
+
+@mixin button {
+  padding: 8px 70px;
+  font-family: $font;
+  font-weight: 600;
+  color: #434343;
+  cursor: pointer;
+  
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: $font;
+  .container {
+    font-size: 2rem;
+
+    hr {
+      width: 70%;
+      margin: auto;
+      background-color: $grey;
+      border: 1px solid $grey;
+      opacity: 0.5;
+    }
+    &__section {
+      width: 100%;
+      max-width: 688px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 40px;
+      border: $border;
+      border-radius: 5px;
+
+      &--error {
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      &__name {
+        @include innerFormatting;
+        margin-bottom: 40px;
+
+        &--error {
+          border: 2px solid tomato;
+        }
+
+      }
+
+      &__url {
+        @include innerFormatting;
+
+        &--error {
+          border: 2px solid tomato;
+        }
+
+      }
+
+      &__button {
+        @include button;
+        margin-top: 10px;
+        background-color: #40b040;
+        opacity: 0.8;
+        box-shadow: 0 4px #194619;
+        &:active {
+          transform: translateY(4px);
+        }
+      }
+
+    }
+
+    &__output {
+      width: 100%;
+      max-width: 688px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 40px;
+      border: $border;
+      border-radius: 5px;
+
+      &__name {
+        @include innerFormatting;
+      }
+
+      &__url {
+        @include innerFormatting;
+      }
+
+      &__button {
+        @include button;
+        margin-top: 10px;
+        background-color: #40b040;
+        opacity: 0.8;
+        box-shadow: 0 4px #194619;
+        &:active {
+          transform: translateY(4px);
+        }
+      }
+
+      &__button-del {
+        @include button;
+        color: #CDB99C;
+        margin-top: 10px;
+        background-color: #b04040;
+        opacity: 0.8;
+        box-shadow: 0 4px #461919;
+        &:active {
+          transform: translateY(4px);
+        }
+      }
+
+    }
+
+  }
+
+}
