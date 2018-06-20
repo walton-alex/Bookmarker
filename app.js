@@ -55,7 +55,7 @@ bookmark.addEventListener('submit', (e) => {
   const bookmarkObj = {
     sitename: bookmarkSiteName,
     siteurl: bookmarkUrl,
-    id: new Date().valueOf(),
+    id: Date.now(),
   }
 
   // Take ID and assign it to the ID attribute
@@ -96,24 +96,31 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
   
   if (e.target && e.target.matches('.container__output__button-del')) {
-    const remove = e.target.parentElement.parentElement.remove();
+    const parentBookmark = e.target.parentElement.parentElement;
+    parentBookmark.remove();
 
     // Remove from array to remove from localstorage
-    const listOfMatches = document.querySelectorAll('.container__output');
-    let match;
+    const bookmarkID = parentBookmark.getAttribute('data-unique-number');
 
-    listOfMatches.forEach(matches => {
-      console.log(matches);
-      matches
-    });
+    // console.log(bookmarkID);
+    // console.log(bookmarkItems);
+    
+    const match = (arrayItem) => {
 
-    bookmarkItems.forEach(bookmarks => {
-
-      if (bookmarks.id == 0) {
-
+      if (arrayItem.id == bookmarkID) {
+        return false;
       }
 
-    });
+      return true;
+
+    }
+
+    // Filter
+    bookmarkItems = bookmarkItems.filter(match);
+
+    // Reset local storage
+    const objToString = JSON.stringify(bookmarkItems);
+    localStorage.setItem('Bookmarks', objToString);
 
   }
 
