@@ -15,7 +15,7 @@ textarea, input, button {
   40%, 60% {
     transform: translate3d(4px, 0, 0); } }
 body {
-  background-color: #f5f5f5;
+  background-color: #0e1e25;
   font-family: "Ubuntu", sans-serif; }
   body .container {
     font-size: 2rem; }
@@ -31,32 +31,33 @@ body {
       margin: 50px auto;
       background-color: #fff;
       padding: 40px;
-      border: 2px solid #808080;
       border-radius: 5px; }
       body .container__section--error {
         animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
         perspective: 1000px; }
+      body .container__section__label {
+        color: #052321; }
       body .container__section__name {
         width: 100%;
         margin: 20px 0;
-        border: 2px solid #808080;
+        border: 2px solid #00c2b2;
         font-size: 1rem;
         padding: 5px;
         font-family: "Ubuntu", sans-serif;
         margin-bottom: 40px; }
         body .container__section__name--error {
-          border: 2px solid tomato; }
+          border: 2px solid #BA0D00; }
       body .container__section__url {
         width: 100%;
         margin: 20px 0;
-        border: 2px solid #808080;
+        border: 2px solid #00c2b2;
         font-size: 1rem;
         padding: 5px;
         font-family: "Ubuntu", sans-serif; }
         body .container__section__url--error {
-          border: 2px solid tomato; }
+          border: 2px solid #BA0D00; }
       body .container__section__button {
         padding: 8px 70px;
         font-family: "Ubuntu", sans-serif;
@@ -67,9 +68,9 @@ body {
         border: none;
         border-radius: 10px;
         margin-top: 10px;
-        background-color: #40b040;
+        background-color: #00c2b2;
         opacity: 0.8;
-        box-shadow: 0 4px #194619; }
+        box-shadow: 0 4px #00766c; }
         body .container__section__button:active {
           transform: translateY(4px); }
     body .container__output {
@@ -78,19 +79,18 @@ body {
       margin: 50px auto;
       background-color: #fff;
       padding: 40px;
-      border: 2px solid #808080;
       border-radius: 5px; }
       body .container__output__name {
         width: 100%;
         margin: 20px 0;
-        border: 2px solid #808080;
+        border: 2px solid #00c2b2;
         font-size: 1rem;
         padding: 5px;
         font-family: "Ubuntu", sans-serif; }
       body .container__output__url {
         width: 100%;
         margin: 20px 0;
-        border: 2px solid #808080;
+        border: 2px solid #00c2b2;
         font-size: 1rem;
         padding: 5px;
         font-family: "Ubuntu", sans-serif; }
@@ -104,9 +104,9 @@ body {
         border: none;
         border-radius: 10px;
         margin-top: 10px;
-        background-color: #40b040;
+        background-color: #00c2b2;
         opacity: 0.8;
-        box-shadow: 0 4px #194619; }
+        box-shadow: 0 4px #00766c; }
         body .container__output__button:active {
           transform: translateY(4px); }
       body .container__output__button-del {
@@ -118,11 +118,11 @@ body {
         font-size: 1rem;
         border: none;
         border-radius: 10px;
-        color: #CDB99C;
+        color: #C47C4C;
         margin-top: 10px;
-        background-color: #b04040;
+        background-color: #BA0D00;
         opacity: 0.8;
-        box-shadow: 0 4px #461919; }
+        box-shadow: 0 4px #6e0800; }
         body .container__output__button-del:active {
           transform: translateY(4px); }
 

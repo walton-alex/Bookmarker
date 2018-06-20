@@ -15,12 +15,11 @@ if (localStorage.getItem('Bookmarks')) {
 bookmarkItems.forEach(bookmarkInput => {
   document.querySelector('.container__output__name').value = bookmarkInput.sitename;
   document.querySelector('.container__output__url').value = bookmarkInput.siteurl;
+  document.querySelector('.container__output').setAttribute('data-unique-number', bookmarkInput.id);
   let outputClone = output.cloneNode(true);
   outputClone.style.display = 'block';
   document.body.appendChild(outputClone);
 });
-
-
 
 // Execute function on form submit
 bookmark.addEventListener('submit', (e) => {
@@ -48,20 +47,24 @@ bookmark.addEventListener('submit', (e) => {
     return;
   }
 
-  // Output
+  // Values to output
   const outputName = document.querySelector('.container__output__name').value = bookmarkSiteName;
   const outputUrl = document.querySelector('.container__output__url').value = bookmarkUrl;
-  let outputClone = output.cloneNode(true);
-  outputClone.style.display = 'block';
-  document.body.appendChild(outputClone);
 
-  // Add to localstorage
   // Create object
   const bookmarkObj = {
     sitename: bookmarkSiteName,
     siteurl: bookmarkUrl,
     id: new Date().valueOf(),
   }
+
+  // Take ID and assign it to the ID attribute
+  const outputID = document.querySelector('.container__output').setAttribute('data-unique-number', bookmarkObj.id);
+
+  // Output
+  let outputClone = output.cloneNode(true);
+  outputClone.style.display = 'block';
+  document.body.appendChild(outputClone);
 
   // Push to array
   bookmarkItems.push(bookmarkObj);
@@ -75,6 +78,7 @@ bookmark.addEventListener('submit', (e) => {
   // Clear
   document.querySelector('.container__section__name').value = '';
   document.querySelector('.container__section__url').value = '';
+  document.querySelector('.container__output').setAttribute('data-unique-number', '');
 });
 
 // Output buttons
@@ -95,9 +99,22 @@ document.addEventListener('click', (e) => {
     const remove = e.target.parentElement.parentElement.remove();
 
     // Remove from array to remove from localstorage
-    console.log(bookmarkItems);
-    // if (bookmarkItems)
-    
+    const listOfMatches = document.querySelectorAll('.container__output');
+    let match;
+
+    listOfMatches.forEach(matches => {
+      console.log(matches);
+      matches
+    });
+
+    bookmarkItems.forEach(bookmarks => {
+
+      if (bookmarks.id == 0) {
+
+      }
+
+    });
+
   }
 
 });
