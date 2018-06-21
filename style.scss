@@ -12,6 +12,7 @@ $grey: #808080;
 $darkBlue: #052321;
 $lightBlue: #8DA9BF;
 $turquoise: #00c2b2;
+$red: #BA0D00;
 $border: 2px solid $turquoise;
 
 @mixin innerFormatting {
@@ -55,6 +56,8 @@ $border: 2px solid $turquoise;
 body {
   background-color: #0e1e25;
   font-family: $font;
+  padding: 15px;
+
   .container {
     font-size: 2rem;
 
@@ -66,8 +69,7 @@ body {
       opacity: 0.5;
     }
     &__section {
-      width: 100%;
-      max-width: 688px;
+      max-width: 350px;
       margin: 50px auto;
       background-color: #fff;
       padding: 40px;
@@ -90,7 +92,7 @@ body {
         margin-bottom: 40px;
 
         &--error {
-          border: 2px solid #BA0D00;
+          border: 2px solid $red;
         }
 
       }
@@ -99,7 +101,7 @@ body {
         @include innerFormatting;
 
         &--error {
-          border: 2px solid #BA0D00;
+          border: 2px solid $red;
         }
 
       }
@@ -118,24 +120,47 @@ body {
     }
 
     &__output {
-      width: 100%;
-      max-width: 688px;
+      max-width: 180px;
       margin: 50px auto;
-      background-color: #fff;
-      padding: 40px;
+      background-color: #f5f5f5;
+      padding: 40px 30px 150px;
       // border: $border;
-      border-radius: 5px;
+      border-radius: 5px 5px 1px 1px;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 120px 100px 120px;
+        border-color: transparent transparent #0e1e25;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
 
       &__name {
         @include innerFormatting;
+        border: 0;
+        background: none;
+        margin: 0;
       }
 
       &__url {
         @include innerFormatting;
+        border: 0;
+        background: none;
+        margin: 0 0 10px;
       }
 
       &__button {
         @include button;
+        display: block;
+        text-align: center;
         margin-top: 10px;
         background-color: #00c2b2;
         opacity: 0.8;
@@ -147,11 +172,12 @@ body {
 
       &__button-del {
         @include button;
+        width: 100%;
         color: #C47C4C;
         margin-top: 10px;
-        background-color: #BA0D00;
+        background-color: $red;
         opacity: 0.8;
-        box-shadow: 0 4px darken(#BA0D00, 15%);
+        box-shadow: 0 4px darken($red, 15%);
         &:active {
           transform: translateY(4px);
         }
@@ -159,6 +185,14 @@ body {
 
     }
 
+  }
+
+  .bookmarks {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    max-width: 1250px;
+    margin: 0 auto;
   }
 
 }

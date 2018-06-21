@@ -3,6 +3,7 @@ const bookmark = document.querySelector('.container__section__input-area');
 const bookmarkNameInput = document.querySelector('.container__section__name');
 const bookmarkUrlInput = document.querySelector('.container__section__url');
 const output = document.querySelector('.container__output');
+const displayArea = document.querySelector('.bookmarks');
 
 let bookmarkItems = [];
 
@@ -18,7 +19,7 @@ bookmarkItems.forEach(bookmarkInput => {
   document.querySelector('.container__output').setAttribute('data-unique-number', bookmarkInput.id);
   let outputClone = output.cloneNode(true);
   outputClone.style.display = 'block';
-  document.body.appendChild(outputClone);
+  displayArea.appendChild(outputClone);
 });
 
 // Execute function on form submit
@@ -64,7 +65,7 @@ bookmark.addEventListener('submit', (e) => {
   // Output
   let outputClone = output.cloneNode(true);
   outputClone.style.display = 'block';
-  document.body.appendChild(outputClone);
+  displayArea.appendChild(outputClone);
 
   // Push to array
   bookmarkItems.push(bookmarkObj);

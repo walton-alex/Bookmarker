@@ -16,7 +16,8 @@ textarea, input, button {
     transform: translate3d(4px, 0, 0); } }
 body {
   background-color: #0e1e25;
-  font-family: "Ubuntu", sans-serif; }
+  font-family: "Ubuntu", sans-serif;
+  padding: 15px; }
   body .container {
     font-size: 2rem; }
     body .container hr {
@@ -26,8 +27,7 @@ body {
       border: 1px solid #808080;
       opacity: 0.5; }
     body .container__section {
-      width: 100%;
-      max-width: 688px;
+      max-width: 350px;
       margin: 50px auto;
       background-color: #fff;
       padding: 40px;
@@ -74,26 +74,45 @@ body {
         body .container__section__button:active {
           transform: translateY(4px); }
     body .container__output {
-      width: 100%;
-      max-width: 688px;
+      max-width: 180px;
       margin: 50px auto;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 5px; }
+      background-color: #f5f5f5;
+      padding: 40px 30px 150px;
+      border-radius: 5px 5px 1px 1px;
+      position: relative; }
+      body .container__output::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 120px 100px 120px;
+        border-color: transparent transparent #0e1e25;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto; }
       body .container__output__name {
         width: 100%;
         margin: 20px 0;
         border: 2px solid #00c2b2;
         font-size: 1rem;
         padding: 5px;
-        font-family: "Ubuntu", sans-serif; }
+        font-family: "Ubuntu", sans-serif;
+        border: 0;
+        background: none;
+        margin: 0; }
       body .container__output__url {
         width: 100%;
         margin: 20px 0;
         border: 2px solid #00c2b2;
         font-size: 1rem;
         padding: 5px;
-        font-family: "Ubuntu", sans-serif; }
+        font-family: "Ubuntu", sans-serif;
+        border: 0;
+        background: none;
+        margin: 0 0 10px; }
       body .container__output__button {
         padding: 8px 70px;
         font-family: "Ubuntu", sans-serif;
@@ -103,6 +122,8 @@ body {
         font-size: 1rem;
         border: none;
         border-radius: 10px;
+        display: block;
+        text-align: center;
         margin-top: 10px;
         background-color: #00c2b2;
         opacity: 0.8;
@@ -118,6 +139,7 @@ body {
         font-size: 1rem;
         border: none;
         border-radius: 10px;
+        width: 100%;
         color: #C47C4C;
         margin-top: 10px;
         background-color: #BA0D00;
@@ -125,5 +147,11 @@ body {
         box-shadow: 0 4px #6e0800; }
         body .container__output__button-del:active {
           transform: translateY(4px); }
+  body .bookmarks {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    max-width: 1250px;
+    margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */
